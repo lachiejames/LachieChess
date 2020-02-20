@@ -1,10 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lachie_chess/tile.dart';
 
-class Piece extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset("assets/images/black_bishop.png");
+class Piece {
+  Tile tile;
+  Image image;
+
+  Piece(Tile tile, Image image) {
+    this.tile = tile;
+    this.image = image;
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'board.dart';
+import 'chess.dart';
 
 void main() {
-  runApp(Board());
+  runApp(Chess());
 }
