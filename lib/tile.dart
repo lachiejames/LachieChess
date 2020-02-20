@@ -6,4 +6,9 @@ class Tile {
     this.row = row;
     this.col = col;
   }
+
+  @override
+  String toString() {
+    return "Tile - ($row, $col)";
+  }
 }
