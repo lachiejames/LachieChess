@@ -11,4 +11,6 @@ class Tile {
   String toString() {
     return "Tile - ($row, $col)";
   }
+
+  bool operator == (tile) => row == tile.row && col == tile.col;
 }

@@ -1,5 +1,5 @@
-import 'package:flutter/src/widgets/image.dart';
 
+import 'package:flutter/material.dart';
 import 'package:lachie_chess/tile.dart';
 
 import '../piece.dart';

@@ -24,7 +24,8 @@ class Board {
   List<Piece> makePieces(List<Tile> tiles) {
     List<Piece> pieces = List<Piece>();
     String pathPrefix = "assets/images/";
-    pieces.add(Piece("pawn", getTileAt(1, 1), Image.asset(pathPrefix + "black_bishop.png")));
+    pieces.add(Piece(
+        "pawn", getTileAt(1, 1), Image.asset(pathPrefix + "black_bishop.png")));
     return pieces;
   }
 
@@ -34,5 +35,6 @@ class Board {
         return tile;
       }
     }
+    return null;
   }
 }

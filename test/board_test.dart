@@ -1,0 +1,18 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:lachie_chess/board.dart';
+import 'package:lachie_chess/tile.dart';
+
+void main() {
+  Board board = Board();
+  test('makeTiles() contains 64 tiles', () {
+    expect(board.tiles.length, equals(64));
+  });
+
+  test('makeTiles() successfully creates all 64 tiles', () {
+    for (var row = 1; row <= 8; row++) {
+      for (var col = 1; col <= 8; col++) {
+        expect(board.tiles.contains(Tile(row, col)), true);
+      }
+    }
+  });
+}
