@@ -15,4 +15,8 @@ void main() {
       }
     }
   });
+
+  test('makePieces() contains 16 pieces', () {});
+
+  test('makePieces() successfully creates all 16 pieces', () {});
 }

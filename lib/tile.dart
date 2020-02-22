@@ -12,5 +12,10 @@ class Tile {
     return "Tile - ($row, $col)";
   }
 
-  bool operator == (tile) => row == tile.row && col == tile.col;
+  // @override
+  // int hashCode() {
+  //   return row*11 + col*107;
+  // }
+
+  bool operator ==(tile) => row == tile.row && col == tile.col;
 }
