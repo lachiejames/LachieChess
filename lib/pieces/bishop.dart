@@ -11,9 +11,12 @@ class BishopPiece extends Piece {
   @override
   List<ChessAction> getPossibleActions(Board board) {
     List<ChessAction> possibleActions = List<ChessAction>();
-    for (Tile t in board.tiles) {
-      if (t.row == tile.col) {
-        
+    for (Tile tile in super.filterAvailableTiles(board)) {
+      for (int i = -8; i <= 8; i++) {
+        if (i != 0 && (this.tile.row == tile.row + i && this.tile.col == tile.col + i) 
+        || (this.tile.row == tile.row - i && this.tile.col == tile.col + i)) {
+          possibleActions.add(ChessAction(this.tile, tile));
+        }
       }
     }
     return possibleActions;

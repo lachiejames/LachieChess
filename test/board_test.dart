@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lachie_chess/action.dart';
 import 'package:lachie_chess/board.dart';
 import 'package:lachie_chess/tile.dart';
 
@@ -22,10 +21,4 @@ void main() {
   });
 
   test('makePieces() successfully creates all 32 pieces', () {});
-
-  // test('getPossibleActions() returns something', () {
-  //   for (ChessAction action in board.getPossibleActions()) {
-  //     print(action);
-  //   }
-  // });
 }

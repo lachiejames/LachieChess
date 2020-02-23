@@ -1,4 +1,3 @@
-import 'action.dart';
 import 'piece.dart';
 import 'pieces/bishop.dart';
 import 'pieces/king.dart';
@@ -67,6 +66,15 @@ class Board {
     return null;
   }
 
+  Piece getPieceByName(String colour, String type) {
+    for (Piece piece in pieces) {
+      if (piece.colour == colour && piece.type == type) {
+        return piece;
+      }
+    }
+    return null;
+  }
+
   Piece getPieceAtTile(Tile tile) {
     for (Piece piece in pieces) {
       if (piece.tile == tile) {
@@ -79,5 +87,4 @@ class Board {
   void movePiece(Piece piece, Tile tile) {
     piece.tile = tile;
   }
-
 }

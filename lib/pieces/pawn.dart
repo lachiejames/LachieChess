@@ -5,10 +5,22 @@ import '../board.dart';
 import '../piece.dart';
 
 class PawnPiece extends Piece {
+  int direction;
+
   PawnPiece(Tile tile, String colour, String type) : super(tile, colour, type);
 
-    @override
+  @override
   List<ChessAction> getPossibleActions(Board board) {
-    return null;
+    List<ChessAction> possibleActions = List<ChessAction>();
+
+    direction = (colour == "white") ? 1 : -1;
+
+    for (Tile tile in super.filterAvailableTiles(board)) {
+      if (this.tile.col == tile.col &&
+          this.tile.row == tile.row + 1 * direction) {
+        possibleActions.add(ChessAction(this.tile, tile));
+      }
+    }
+    return possibleActions;
   }
 }

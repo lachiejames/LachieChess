@@ -31,6 +31,10 @@ class Piece {
     return null;
   }
 
+  List<Tile> filterAvailableTiles(Board board) {
+    return board.tiles.where((t) => !t.isOccupied).toList();
+  }
+
   @override
   String toString() {
     return "Piece - $colour $type at $tile";

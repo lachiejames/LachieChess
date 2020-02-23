@@ -7,8 +7,14 @@ import '../piece.dart';
 class RookPiece extends Piece {
   RookPiece(Tile tile, String colour, String type) : super(tile, colour, type);
 
-    @override
+  @override
   List<ChessAction> getPossibleActions(Board board) {
-    return null;
+    List<ChessAction> possibleActions = List<ChessAction>();
+    for (Tile tile in super.filterAvailableTiles(board)) {
+      if (this.tile.row==tile.row || this.tile.col==tile.col) {
+        possibleActions.add(ChessAction(this.tile, tile));
+      }
+    }
+    return possibleActions;
   }
 }
