@@ -1,4 +1,11 @@
+import 'action.dart';
 import 'piece.dart';
+import 'pieces/bishop.dart';
+import 'pieces/king.dart';
+import 'pieces/knight.dart';
+import 'pieces/pawn.dart';
+import 'pieces/queen.dart';
+import 'pieces/rook.dart';
 import 'tile.dart';
 
 class Board {
@@ -8,9 +15,6 @@ class Board {
   Board() {
     tiles = makeTiles();
     pieces = makePieces(tiles);
-    for (Piece piece in pieces) {
-      print(piece.toString());
-    }
   }
 
   List<Tile> makeTiles() {
@@ -26,41 +30,30 @@ class Board {
   List<Piece> makePieces(List<Tile> tiles) {
     List<Piece> pieces = List<Piece>();
 
-    pieces.add(Piece(getTileAt(1, 1), "black", "rook"));
-    pieces.add(Piece(getTileAt(1, 2), "black", "knight"));
-    pieces.add(Piece(getTileAt(1, 3), "black", "bishop"));
-    pieces.add(Piece(getTileAt(1, 4), "black", "queen"));
-    pieces.add(Piece(getTileAt(1, 5), "black", "king"));
-    pieces.add(Piece(getTileAt(1, 6), "black", "bishop"));
-    pieces.add(Piece(getTileAt(1, 7), "black", "knight"));
-    pieces.add(Piece(getTileAt(1, 8), "black", "rook"));
+    pieces.add(RookPiece(getTileAt(1, 1), "black", "rook"));
+    pieces.add(KnightPiece(getTileAt(1, 2), "black", "knight"));
+    pieces.add(BishopPiece(getTileAt(1, 3), "black", "bishop"));
+    pieces.add(QueenPiece(getTileAt(1, 4), "black", "queen"));
+    pieces.add(KingPiece(getTileAt(1, 5), "black", "king"));
+    pieces.add(BishopPiece(getTileAt(1, 6), "black", "bishop"));
+    pieces.add(KnightPiece(getTileAt(1, 7), "black", "knight"));
+    pieces.add(RookPiece(getTileAt(1, 8), "black", "rook"));
 
-    pieces.add(Piece(getTileAt(2, 1), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 2), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 3), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 4), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 5), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 6), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 7), "black", "pawn"));
-    pieces.add(Piece(getTileAt(2, 8), "black", "pawn"));
+    for (var i = 1; i <= 8; i++) {
+      pieces.add(PawnPiece(getTileAt(2, i), "black", "pawn"));
+    }
+    for (var i = 1; i <= 8; i++) {
+      pieces.add(PawnPiece(getTileAt(7, i), "white", "pawn"));
+    }
 
-    pieces.add(Piece(getTileAt(7, 1), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 2), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 3), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 4), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 5), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 6), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 7), "white", "pawn"));
-    pieces.add(Piece(getTileAt(7, 8), "white", "pawn"));
-
-    pieces.add(Piece(getTileAt(8, 1), "white", "rook"));
-    pieces.add(Piece(getTileAt(8, 2), "white", "knight"));
-    pieces.add(Piece(getTileAt(8, 3), "white", "bishop"));
-    pieces.add(Piece(getTileAt(8, 4), "white", "queen"));
-    pieces.add(Piece(getTileAt(8, 5), "white", "king"));
-    pieces.add(Piece(getTileAt(8, 6), "white", "bishop"));
-    pieces.add(Piece(getTileAt(8, 7), "white", "knight"));
-    pieces.add(Piece(getTileAt(8, 8), "white", "rook"));
+    pieces.add(RookPiece(getTileAt(8, 1), "white", "rook"));
+    pieces.add(KnightPiece(getTileAt(8, 2), "white", "knight"));
+    pieces.add(BishopPiece(getTileAt(8, 3), "white", "bishop"));
+    pieces.add(QueenPiece(getTileAt(8, 4), "white", "queen"));
+    pieces.add(KingPiece(getTileAt(8, 5), "white", "king"));
+    pieces.add(BishopPiece(getTileAt(8, 6), "white", "bishop"));
+    pieces.add(KnightPiece(getTileAt(8, 7), "white", "knight"));
+    pieces.add(RookPiece(getTileAt(8, 8), "white", "rook"));
 
     return pieces;
   }
@@ -73,4 +66,18 @@ class Board {
     }
     return null;
   }
+
+  Piece getPieceAtTile(Tile tile) {
+    for (Piece piece in pieces) {
+      if (piece.tile == tile) {
+        return piece;
+      }
+    }
+    return null;
+  }
+
+  void movePiece(Piece piece, Tile tile) {
+    piece.tile = tile;
+  }
+
 }

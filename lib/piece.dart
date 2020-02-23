@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lachie_chess/tile.dart';
 
+import 'action.dart';
+import 'board.dart';
+
 class Piece {
   final String imagePathPrefix = "images/assets/";
   final String imagePathSuffix = "png";
@@ -22,6 +25,10 @@ class Piece {
   String createImagePath(String colour, String type) {
     String imageFileName = "${colour}_$type.$imagePathSuffix";
     return imagePathPrefix + imageFileName;
+  }
+
+  List<ChessAction> getPossibleActions(Board board) {
+    return null;
   }
 
   @override
