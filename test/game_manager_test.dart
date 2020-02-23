@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lachie_chess/game_manager.dart';
+import 'package:lachie_chess/managers/game_manager.dart';
 
 void main() {
   GameManager gameManager = GameManager();

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lachie_chess/board.dart';
-import 'package:lachie_chess/tile.dart';
+import 'package:lachie_chess/logic/board.dart';
+import 'package:lachie_chess/logic/tile.dart';
 
 void main() {
   Board board = Board();

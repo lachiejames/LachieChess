@@ -1,11 +1,15 @@
+import 'package:lachie_chess/pieces/bishop.dart';
+import 'package:lachie_chess/pieces/king.dart';
+import 'package:lachie_chess/pieces/knight.dart';
+import 'package:lachie_chess/pieces/pawn.dart';
+import 'package:lachie_chess/pieces/queen.dart';
+import 'package:lachie_chess/pieces/rook.dart';
+
 import 'piece.dart';
-import 'pieces/bishop.dart';
-import 'pieces/king.dart';
-import 'pieces/knight.dart';
-import 'pieces/pawn.dart';
-import 'pieces/queen.dart';
-import 'pieces/rook.dart';
 import 'tile.dart';
+
+
+
 
 class Board {
   List<Tile> tiles;

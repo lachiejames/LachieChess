@@ -1,7 +1,10 @@
-import 'action.dart';
-import 'board.dart';
-import 'piece.dart';
-import 'tile.dart';
+
+
+import 'package:lachie_chess/logic/action.dart';
+import 'package:lachie_chess/logic/board.dart';
+
+import '../logic/piece.dart';
+import '../logic/tile.dart';
 
 class GameManager {
   Board board;

@@ -1,8 +1,7 @@
-import 'package:lachie_chess/tile.dart';
-
-import '../action.dart';
-import '../board.dart';
-import '../piece.dart';
+import '../logic/action.dart';
+import '../logic/board.dart';
+import '../logic/piece.dart';
+import '../logic/tile.dart';
 
 class KingPiece extends Piece {
   KingPiece(Tile tile, String colour, String type) : super(tile, colour, type);

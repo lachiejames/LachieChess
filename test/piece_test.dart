@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lachie_chess/action.dart';
-import 'package:lachie_chess/board.dart';
-import 'package:lachie_chess/game_manager.dart';
-import 'package:lachie_chess/piece.dart';
-import 'package:lachie_chess/tile.dart';
+import 'package:lachie_chess/logic/action.dart';
+import 'package:lachie_chess/logic/board.dart';
+import 'package:lachie_chess/managers/game_manager.dart';
+import 'package:lachie_chess/logic/piece.dart';
+import 'package:lachie_chess/logic/tile.dart';
 
 void main() {
   group('misc tests', () {
@@ -36,7 +36,8 @@ void main() {
 
     test("White Pawn", () {
       Piece pawn = board.getPieceByName("white", "pawn");
-      gameManager.movePiece(pawn, board.getTileAt(4, 4));
+      pawn.tile = board.getTileAt(4, 4);
+      pawn.tile.isOccupied = true;      
       List<ChessAction> actions = pawn.getPossibleActions(board);
 
       expect(actions.length, 1);
@@ -46,7 +47,8 @@ void main() {
 
     test("Black Pawn", () {
       Piece pawn = board.getPieceByName("black", "pawn");
-      gameManager.movePiece(pawn, board.getTileAt(4, 4));
+      pawn.tile = board.getTileAt(4, 4);
+      pawn.tile.isOccupied = true;      
       List<ChessAction> actions = pawn.getPossibleActions(board);
 
       expect(actions.length, 1);
@@ -56,8 +58,8 @@ void main() {
 
     test("Rook", () {
       Piece rook = board.getPieceByName("black", "rook");
-      gameManager.movePiece(rook, board.getTileAt(4, 4));
-      List<ChessAction> actions = rook.getPossibleActions(board);
+      rook.tile = board.getTileAt(4, 4);
+      rook.tile.isOccupied = true;          List<ChessAction> actions = rook.getPossibleActions(board);
 
       expect(actions.length, 14);
 
@@ -80,7 +82,8 @@ void main() {
 
     test("Bishop", () {
       Piece bishop = board.getPieceByName("black", "bishop");
-      gameManager.movePiece(bishop, board.getTileAt(4, 4));
+      bishop.tile = board.getTileAt(4, 4);
+      bishop.tile.isOccupied = true;      
       List<ChessAction> actions = bishop.getPossibleActions(board);
 
       expect(actions.length, 13);
@@ -103,7 +106,8 @@ void main() {
 
     test("Knight", () {
       Piece knight = board.getPieceByName("black", "knight");
-      gameManager.movePiece(knight, board.getTileAt(4, 4));
+      knight.tile = board.getTileAt(4, 4);
+      knight.tile.isOccupied = true;      
       List<ChessAction> actions = knight.getPossibleActions(board);
 
       expect(actions.length, 8);
@@ -120,7 +124,8 @@ void main() {
 
     test("Queen", () {
       Piece queen = board.getPieceByName("black", "queen");
-      gameManager.movePiece(queen, board.getTileAt(4, 4));
+      queen.tile = board.getTileAt(4, 4);
+      queen.tile.isOccupied = true;
       List<ChessAction> actions = queen.getPossibleActions(board);
 
       expect(actions.length, 27);
@@ -159,7 +164,8 @@ void main() {
 
     test("King", () {
       Piece king = board.getPieceByName("black", "king");
-      gameManager.movePiece(king, board.getTileAt(4, 4));
+      king.tile = board.getTileAt(4, 4);
+      king.tile.isOccupied = true;      
       List<ChessAction> actions = king.getPossibleActions(board);
 
       expect(actions.length, 8);
@@ -184,7 +190,8 @@ void main() {
     });
     test("White Pawn", () {
       Piece pawn = board.getPieceByName("white", "pawn");
-      gameManager.movePiece(pawn, board.getTileAt(4, 4));
+      pawn.tile = board.getTileAt(4, 4);
+      pawn.tile.isOccupied = true;      
       List<ChessAction> actions = pawn.getPossibleActions(board);
 
       expect(actions.length, 1);
@@ -194,7 +201,8 @@ void main() {
 
     test("Black Pawn", () {
       Piece pawn = board.getPieceByName("black", "pawn");
-      gameManager.movePiece(pawn, board.getTileAt(4, 4));
+      pawn.tile = board.getTileAt(4, 4);
+      pawn.tile.isOccupied = true;      
       List<ChessAction> actions = pawn.getPossibleActions(board);
 
       expect(actions.length, 1);
@@ -204,7 +212,8 @@ void main() {
 
     test("Rook", () {
       Piece rook = board.getPieceByName("black", "rook");
-      gameManager.movePiece(rook, board.getTileAt(4, 4));
+      rook.tile = board.getTileAt(4, 4);
+      rook.tile.isOccupied = true;      
       List<ChessAction> actions = rook.getPossibleActions(board);
 
       expect(actions.length, 10);
@@ -228,7 +237,8 @@ void main() {
 
     test("Bishop", () {
       Piece bishop = board.getPieceByName("black", "bishop");
-      gameManager.movePiece(bishop, board.getTileAt(4, 4));
+      bishop.tile = board.getTileAt(4, 4);
+      bishop.tile.isOccupied = true;      
       List<ChessAction> actions = bishop.getPossibleActions(board);
 
       expect(actions.length, 6);
@@ -251,7 +261,8 @@ void main() {
 
     test("Knight", () {
       Piece knight = board.getPieceByName("black", "knight");
-      gameManager.movePiece(knight, board.getTileAt(4, 4));
+      knight.tile = board.getTileAt(4, 4);
+      knight.tile.isOccupied = true;      
       List<ChessAction> actions = knight.getPossibleActions(board);
 
       expect(actions.length, 6);
@@ -268,13 +279,9 @@ void main() {
 
     test("Queen", () {
       Piece queen = board.getPieceByName("black", "queen");
-      gameManager.movePiece(queen, board.getTileAt(4, 4));
-      gameManager.board.getTileAt(1, 4).isOccupied = true;
+      queen.tile = board.getTileAt(4, 4);
+      queen.tile.isOccupied = true;
       List<ChessAction> actions = queen.getPossibleActions(board);
-
-      for (ChessAction action in actions) {
-        print(action);
-      }
 
       expect(actions.length, 16);
 
@@ -312,7 +319,8 @@ void main() {
 
     test("King", () {
       Piece king = board.getPieceByName("black", "king");
-      gameManager.movePiece(king, board.getTileAt(4, 4));
+      king.tile = board.getTileAt(4, 4);
+      king.tile.isOccupied = true;      
       List<ChessAction> actions = king.getPossibleActions(board);
 
       expect(actions.length, 8);

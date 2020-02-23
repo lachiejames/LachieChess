@@ -8,7 +8,7 @@ class Chess extends StatelessWidget {
       title: "Lachie Chess",
       home: Scaffold(
         appBar: AppBar(title: Text("Lachie Chess")),
-        body: Material(),
+        body: Image.asset("assets/images/chess_board.png"),
       ),
     );
   }

@@ -1,8 +1,9 @@
-import 'package:lachie_chess/tile.dart';
+import '../logic/action.dart';
+import '../logic/board.dart';
+import '../logic/piece.dart';
+import '../logic/tile.dart';
 
-import '../action.dart';
-import '../board.dart';
-import '../piece.dart';
+
 
 class BishopPiece extends Piece {
   BishopPiece(Tile tile, String colour, String type)
