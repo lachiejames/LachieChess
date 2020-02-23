@@ -15,7 +15,7 @@ class PawnPiece extends Piece {
 
     direction = (colour == "white") ? 1 : -1;
 
-    for (Tile tile in super.filterAvailableTiles(board)) {
+    for (Tile tile in board.getAvailableTiles()) {
       if (this.tile.col == tile.col &&
           this.tile.row == tile.row + 1 * direction) {
         possibleActions.add(ChessAction(this.tile, tile));

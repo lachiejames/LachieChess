@@ -11,15 +11,13 @@ class KingPiece extends Piece {
   List<ChessAction> getPossibleActions(Board board) {
     List<ChessAction> possibleActions = List<ChessAction>();
 
-    for (Tile tile in super.filterAvailableTiles(board)) {
+    for (Tile tile in board.getAvailableTiles()) {
       for (int i = -1; i <= 1; i++) {
-        if ((i != 0 && this.tile != tile) &&
-            ((this.tile.row == tile.row && this.tile.col == tile.col + i) ||
-                (this.tile.row == tile.row + i && this.tile.col == tile.col) ||
-                (this.tile.row == tile.row + i &&
-                    this.tile.col == tile.col + i) ||
-                (this.tile.row == tile.row - i &&
-                    this.tile.col == tile.col + i))) {
+        if (i != 0 &&
+                (this.tile.row == tile.row && this.tile.col == tile.col + i) ||
+            (this.tile.row == tile.row + i && this.tile.col == tile.col) ||
+            (this.tile.row == tile.row + i && this.tile.col == tile.col + i) ||
+            (this.tile.row == tile.row - i && this.tile.col == tile.col + i)) {
           possibleActions.add(ChessAction(this.tile, tile));
         }
       }

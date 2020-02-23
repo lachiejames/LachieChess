@@ -21,4 +21,19 @@ void main() {
   });
 
   test('makePieces() successfully creates all 32 pieces', () {});
+
+  test('filterAvailableTiles() works as expected', () {
+    Board board = Board();
+    List<Tile> availableTiles = board.getAvailableTiles();
+
+    for (int row = 1; row <= 8; row++) {
+      for (int col = 1; col <= 8; col++) {
+        if (row <= 2 || row >= 7) {
+          expect(availableTiles.contains(Tile(row, col)), false);
+        } else {
+          expect(availableTiles.contains(Tile(row, col)), true);
+        }
+      }
+    }
+  });
 }
