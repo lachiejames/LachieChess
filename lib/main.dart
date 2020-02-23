@@ -6,4 +6,5 @@ import 'chess.dart';
 void main() {
   runApp(Chess());
   GameManager gameManager = GameManager();
+  gameManager.startGame();
 }

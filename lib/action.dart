@@ -15,7 +15,7 @@ class ChessAction {
   }
 
   @override
-  int hashCode() {
+  int get hashCode {
     return startTile.row * 7 +
         startTile.col * 59 +
         endTile.row * 479 +

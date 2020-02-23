@@ -40,10 +40,10 @@ class Piece {
     return "Piece - $colour $type at $tile";
   }
 
-  // @override
-  // int hashCode() {
-  //   return image.hashCode;
-  // }
+  @override
+  int get hashCode {
+    return colour.hashCode - type.hashCode;
+  }
 
   bool operator ==(piece) =>
       piece.tile == tile && piece.type == type && piece.colour == colour;

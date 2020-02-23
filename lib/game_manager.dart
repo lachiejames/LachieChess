@@ -1,10 +1,10 @@
 import 'action.dart';
 import 'board.dart';
 import 'piece.dart';
+import 'tile.dart';
 
 class GameManager {
   Board board;
-  
 
   GameManager() {
     board = Board();
@@ -18,5 +18,13 @@ class GameManager {
       }
     }
     return possibleActions;
+  }
+
+  void startGame() {}
+
+  void movePiece(Piece piece, Tile newTile) {
+    piece.tile.isOccupied = false;
+    newTile.isOccupied = true;
+    piece.tile = newTile;
   }
 }

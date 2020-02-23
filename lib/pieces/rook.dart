@@ -11,7 +11,8 @@ class RookPiece extends Piece {
   List<ChessAction> getPossibleActions(Board board) {
     List<ChessAction> possibleActions = List<ChessAction>();
     for (Tile tile in super.filterAvailableTiles(board)) {
-      if (this.tile.row==tile.row || this.tile.col==tile.col) {
+      if ((this.tile != tile) && (this.tile.row == tile.row) ||
+          (this.tile.col == tile.col)) {
         possibleActions.add(ChessAction(this.tile, tile));
       }
     }
