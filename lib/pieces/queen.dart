@@ -4,6 +4,8 @@ import '../logic/piece.dart';
 import '../logic/tile.dart';
 
 class QueenPiece extends Piece {
+    final int value = 9;
+
   QueenPiece(Tile tile, String colour, String type) : super(tile, colour, type);
 
   @override

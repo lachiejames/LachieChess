@@ -3,9 +3,9 @@ import '../logic/board.dart';
 import '../logic/piece.dart';
 import '../logic/tile.dart';
 
-
-
 class BishopPiece extends Piece {
+  final int value = 3;
+
   BishopPiece(Tile tile, String colour, String type)
       : super(tile, colour, type);
 

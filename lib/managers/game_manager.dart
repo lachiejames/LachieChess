@@ -1,6 +1,5 @@
-
-
 import 'package:lachie_chess/logic/action.dart';
+import 'package:lachie_chess/logic/ai.dart';
 import 'package:lachie_chess/logic/board.dart';
 
 import '../logic/piece.dart';
@@ -8,9 +7,11 @@ import '../logic/tile.dart';
 
 class GameManager {
   Board board;
+  AI ai;
 
   GameManager() {
     board = Board();
+    ai = AI();
   }
 
   List<ChessAction> getPossibleActions() {

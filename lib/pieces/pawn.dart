@@ -4,6 +4,8 @@ import '../logic/piece.dart';
 import '../logic/tile.dart';
 
 class PawnPiece extends Piece {
+    final int value = 1;
+
   int direction;
 
   PawnPiece(Tile tile, String colour, String type) : super(tile, colour, type);

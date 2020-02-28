@@ -4,6 +4,8 @@ import '../logic/piece.dart';
 import '../logic/tile.dart';
 
 class RookPiece extends Piece {
+    final int value = 5;
+
   RookPiece(Tile tile, String colour, String type) : super(tile, colour, type);
 
   @override

@@ -36,4 +36,14 @@ void main() {
       }
     }
   });
+
+  test('getBestAction() returns a value', () {
+    expect(board.calculateValue("black"), isNotNull);
+    expect(board.calculateValue("white"), isNotNull);
+  });
+
+  test('getBestAction() returns the expected values', () {
+    expect(board.calculateValue("black"), 1039);
+    expect(board.calculateValue("white"), 1039);
+  });
 }

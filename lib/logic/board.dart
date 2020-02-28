@@ -5,19 +5,19 @@ import 'package:lachie_chess/pieces/pawn.dart';
 import 'package:lachie_chess/pieces/queen.dart';
 import 'package:lachie_chess/pieces/rook.dart';
 
+import 'action.dart';
 import 'piece.dart';
 import 'tile.dart';
-
-
-
 
 class Board {
   List<Tile> tiles;
   List<Piece> pieces;
+  List<ChessAction> actionHistory;
 
   Board() {
     tiles = makeTiles();
     pieces = makePieces(tiles);
+    actionHistory = List<ChessAction>();
   }
 
   List<Tile> makeTiles() {
@@ -103,5 +103,39 @@ class Board {
 
   List<Tile> getAvailableTiles() {
     return tiles.where((tile) => !tile.isOccupied).toList();
+  }
+
+  void takeAction(ChessAction action) {
+    actionHistory.add(action);
+    Piece possiblePiece = getPieceAtTile(action.endTile);
+    if (possiblePiece != null) {
+      pieces.remove(possiblePiece);
+    }
+    movePiece(getPieceAtTile(action.startTile), action.endTile);
+  }
+
+  void undoAction(ChessAction action) {
+    // if (actionHistory.last)
+    movePiece(getPieceAtTile(action.endTile), action.startTile);
+  }
+
+  int calculateValue(String colour) {
+    int sum = 0;
+    for (Piece piece in pieces) {
+      if (piece.colour == colour) {
+        sum += piece.value;
+      }
+    }
+    return sum;
+  }
+
+  List<ChessAction> getPossibleActions() {
+    List<ChessAction> possibleActions = List<ChessAction>();
+    for (Piece piece in pieces) {
+      for (ChessAction action in piece.getPossibleActions(this)) {
+        possibleActions.add(action);
+      }
+    }
+    return possibleActions;
   }
 }

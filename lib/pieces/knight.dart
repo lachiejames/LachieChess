@@ -4,6 +4,9 @@ import '../logic/piece.dart';
 import '../logic/tile.dart';
 
 class KnightPiece extends Piece {
+    final int value = 3;
+
+    
   KnightPiece(Tile tile, String colour, String type)
       : super(tile, colour, type);
 

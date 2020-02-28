@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 
 import 'action.dart';
@@ -10,6 +7,8 @@ import 'tile.dart';
 class Piece {
   final String imagePathPrefix = "images/assets/";
   final String imagePathSuffix = "png";
+
+  int value = -1;
 
   Tile tile;
   String colour;
